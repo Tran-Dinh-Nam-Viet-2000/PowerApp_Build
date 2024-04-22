@@ -1,13 +1,26 @@
+// this.formOnLoad = function(executionContext) {
+//     var formContext = executionContext.getFormContext();
+//     formContext.ui.setFormNotification("Hello power app 1", "WARNING", "IDUnique220912");
+//     if (formContext.getAttribute("fax").getValue() == null) {
+//         formContext.getAttribute("fax").setValue("123-611-038");
+//     }
+//     if (formContext.getAttribute("telephone1").getValue() != null) {
+//         formContext.getAttribute("telephone1").setValue("0905611038");
+//     }
+//     if (formContext.getAttribute("websiteurl").getValue() == null) {
+//         formContext.getAttribute("websiteurl").setValue("https://translate.google.com/");
+//     }
+// }
+
 this.formOnLoad = function(executionContext) {
     var formContext = executionContext.getFormContext();
-    formContext.ui.setFormNotification("Hello power app 1", "WARNING", "IDUnique220912");
+    formContext.ui.setFormNotification("Hello power app 2", "WARNING", "IDUnique220912");
     if (formContext.getAttribute("fax").getValue() == null) {
-        formContext.getAttribute("fax").setValue("123-611-038");
-    }
-    if (formContext.getAttribute("telephone1").getValue() != null) {
-        formContext.getAttribute("telephone1").setValue("0905611038");
-    }
-    if (formContext.getAttribute("websiteurl").getValue() == null) {
-        formContext.getAttribute("websiteurl").setValue("https://translate.google.com/");
+        // formContext.getAttribute("fax").setValue("123-611-038");
+        formContext.getControl("fax").addNotification({
+            messages: ['Fax number set to default'],
+            notificationLevel: 'RECOMMENDATION',
+            uniqueID: "IDUnique220912-2"
+        })
     }
 }
